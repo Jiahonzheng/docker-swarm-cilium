@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
       node.vm.box = "ubuntu/focal64"
       node.vm.hostname = "NODE-#{i}"
       node.vm.network "private_network", ip: "192.168.56.20#{i}"
+      node.vm.synced_folder "./scripts", "/scripts"
 
       node.vm.provider "virtualbox" do |v|
         v.name = "NODE-#{i}"
