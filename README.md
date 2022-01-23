@@ -23,3 +23,11 @@ vagrant ssh NODE-0 -c "HOST_IP=192.168.56.200 CONSUL=192.168.56.200 bash /script
 
 vagrant ssh NODE-1 -c "HOST_IP=192.168.56.201 CONSUL=192.168.56.200 bash /scripts/cilium.sh"
 ```
+
+### Create Docker Network
+
+```bash
+vagrant ssh NODE-0 -c "docker network create --driver cilium --ipam-driver cilium cilium-net"
+
+vagrant ssh NODE-1 -c "docker network create --driver cilium --ipam-driver cilium cilium-net"
+```
